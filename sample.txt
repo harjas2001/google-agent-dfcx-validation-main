@@ -1,0 +1,1 @@
+$sys.func.IF(\"$session.params.appData.accountType = prepaid\", 'AppMsg_VF_PrepaidCare', 'AppMsg_VF_PostpaidCare')

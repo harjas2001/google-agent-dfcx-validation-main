@@ -1,0 +1,12 @@
+flows/activation-setup/pages/activate-esim.withdevice.json
+URL missing required 'link_type' query parameter
+root.entryFulfillment.messages[1].payload.genesys_carousel › card[0] › actions[0] → url: https://www.vodafone.com.au/support/device/esim#vc23346bf231183dc9b32ec160dab7b727c7f27c81d1c64255df5b0c631b1ab6a?link_type=external
+
+flows/pre-sale/pages/offers-promotions.prepaid.json
+URL missing required 'link_type' query parameter
+root.entryFulfillment.messages[0].payload.genesys_carousel › card[0] › actions[0] → url: https://www.vodafone.com.au/deals?title=prepaid?utm_source=tobi-app&utm_medium=tobi-plan_sales&utm_campaign=tobi-offers_and_promotions:::::&utm_content=tobi-sales?link_type=external
+
+flows/upgrades-plan-change/pages/sales.fallback.prepaid.json
+URL missing required 'link_type' query parameter
+root.entryFulfillment.messages[2].payload.genesys_carousel › card[0] › actions[1] → url: https://www.vodafone.com.au/deals?title=phones?link_type=external
+

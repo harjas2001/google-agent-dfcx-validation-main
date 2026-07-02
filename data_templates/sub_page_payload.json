@@ -1,0 +1,43 @@
+{
+    "name": "**********************",
+    "displayName": "activate-esim.purchase-plan",
+    "form": {
+    
+    },
+    "entryFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "If you've already got an eSIM enabled device, you can simply choose ‘eSIM’ at checkout when you buy a Vodafone plan online. This way gets you connected without having to wait for your physical SIM to arrive." ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "genesys_prompt": "eSIMs are available for Vodafone prepaid plans and our monthly SIM Only plans. What kind of plan were you interested in?",
+          "genesys_quick_replies": [ {
+            "payload": "Buy a prepaid plan",
+            "text": "Buy a prepaid plan"
+          }, {
+            "payload": "Buy a SIM Only plan",
+            "text": "Buy a SIM Only plan"
+          } ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "lastPage",
+        "value": "activate-esim.purchase-plan"
+      }, {
+        "parameter": "category",
+        "value": "$sys.func.IF(\"$session.params.appData.accountType = prepaid\", 'AppMsg_VF_PrepaidCare', 'AppMsg_VF_Upgrades')"
+      } ]
+    },
+    "transitionRoutes": [ {
+      "intent": "sales",
+      "triggerFulfillment": {
+      
+      },
+      "targetFlow": "upgrades-plan-change",
+      "name": "**********************"
+    } ]
+  }
+  

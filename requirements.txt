@@ -1,0 +1,14 @@
+# google-agent-dfcx-validation
+# Python 3.10+
+#
+# This project uses only the Python standard library.
+# No third-party dependencies are required.
+#
+# The following are optional extras for development / testing:
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Linting
+ruff>=0.1.0

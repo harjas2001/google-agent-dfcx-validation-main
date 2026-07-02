@@ -1,0 +1,119 @@
+{
+    "name": "**********************",
+    "displayName": "activation-setup",
+    "transitionRoutes": [ {
+      "intent": "activateSim",
+      "triggerFulfillment": {
+        "setParameterActions": [ {
+          "parameter": "category",
+          "value": "$sys.func.IF(\"$session.params.appData.accountType = prepaid\", 'AppMsg_VF_PrepaidCare', 'AppMsg_VF_PostpaidCare')"
+        }, {
+          "parameter": "topic",
+          "value": "activateSim"
+        }, {
+          "parameter": "matchedTopicList",
+          "value": "$sys.func.APPEND($session.params.matchedTopicList,$session.params.topic)"
+        }, {
+          "parameter": "lastPage",
+          "value": "check-parameter-psim"
+        }, {
+          "parameter": "friendlyTitle",
+          "value": "sim activation"
+        } ]
+      },
+      "targetPage": "check-parameter-service",
+      "name": "**********************"
+    }, {
+      "intent": "nbnInstallation",
+      "triggerFulfillment": {
+        "setParameterActions": [ {
+          "parameter": "category",
+          "value": "$sys.func.IF(\"$session.params.appData.accountType = prepaid\", 'AppMsg_VF_PrepaidCare', 'AppMsg_VF_NBNCare')"
+        }, {
+          "parameter": "topic",
+          "value": "nbninstallation"
+        }, {
+          "parameter": "matchedTopicList",
+          "value": "$sys.func.APPEND($session.params.matchedTopicList,$session.params.topic)"
+        }, {
+          "parameter": "lastPage",
+          "value": "nbn-installation"
+        }, {
+          "parameter": "friendlyTitle",
+          "value": "setting up your nbn"
+        } ]
+      },
+      "targetPage": "nbn-installation",
+      "name": "**********************"
+    }, {
+      "intent": "mbb.activation",
+      "triggerFulfillment": {
+        "setParameterActions": [ {
+          "parameter": "category",
+          "value": "$sys.func.IF(\"$session.params.appData.accountType = prepaid\", 'AppMsg_VF_PrepaidCare', 'AppMsg_VF_PostpaidCare')"
+        }, {
+          "parameter": "topic",
+          "value": "mbb-setup"
+        }, {
+          "parameter": "matchedTopicList",
+          "value": "$sys.func.APPEND($session.params.matchedTopicList,$session.params.topic)"
+        }, {
+          "parameter": "lastPage",
+          "value": "mbb-activation"
+        }, {
+          "parameter": "friendlyTitle",
+          "value": "your Pocket WiFi"
+        } ]
+      },
+      "targetPage": "mbb-activation",
+      "name": "**********************"
+    } ],
+    "eventHandlers": [ {
+      "targetFlow": "fallback",
+      "event": "sys.no-match-default",
+      "triggerFulfillment": {
+        "advancedSettings": {
+          "playbackInterruptionSettings": {
+          
+          },
+          "dtmfSettings": {
+            "useSystemEntityRule": false
+          }
+        }
+      },
+      "name": "**********************"
+    }, {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [ {
+          "text": {
+            "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+          },
+          "languageCode": "en"
+        } ]
+      },
+      "name": "**********************"
+    } ],
+    "nluSettings": {
+      "modelType": "MODEL_TYPE_ADVANCED",
+      "classificationThreshold": 0.30000001,
+      "modelTrainingMode": "MODEL_TRAINING_MODE_MANUAL",
+      "multiIntentSettings": {
+      
+      }
+    },
+    "advancedSettings": {
+      "enabled": true
+    },
+    "nluSettingsList": [ {
+      "modelType": "MODEL_TYPE_ADVANCED",
+      "classificationThreshold": 0.44999999,
+      "modelTrainingMode": "MODEL_TRAINING_MODE_MANUAL",
+      "multiIntentSettings": {
+      
+      },
+      "languageCode": "en"
+    } ],
+    "agentTransitionRouteGroups": [ "faq", "agent-routing", "small-talk", "course-correction" ]
+  }
+  
