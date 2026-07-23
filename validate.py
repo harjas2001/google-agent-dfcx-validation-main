@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 validate.py — Dialogflow CX Agent Validation Pipeline
 
